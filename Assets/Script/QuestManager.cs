@@ -1,4 +1,4 @@
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -13,12 +13,16 @@ public class QuestManager : MonoBehaviour
     public Transform rootUi;
     public Transform RootUiTest;
     public TestBoardHandle boardHandle;
+    public TestBoadHandle2 boadHandle2;
+    public Transform rootTestUI;
     public Dictionary<int, QuestHandle> IdQuestHandle;
+
     public void Start()
     {
+    {       
         LoadDataJson();
-
         IdQuestHandle = new Dictionary<int, QuestHandle>();
+        Debug.Log("IdQuestHanle is Created");
         foreach (var datas in questDataBases.questDatas)
         {
             QuestProcessData processData = processDataBases.questProgessDatas.Find(processData => processData.id == datas.id);
@@ -29,38 +33,34 @@ public class QuestManager : MonoBehaviour
     {
         var quest = Instantiate(questHandleItem, rootUi);
         var questTest = Instantiate(boardHandle, RootUiTest);
-        quest.SetData(dataX, progessX);
-        questTest.SetData(progessX);
+        quest.SetData(dataX, progessX);       
         IdQuestHandle.Add(dataX.id, quest);
     }
 
     [ContextMenu("SaveDataJson")]
     public void SaveDataJson()
     {
-
         var value = JsonUtility.ToJson(processDataBases);
         PlayerPrefs.SetString(nameof(processDataBases), value);
         PlayerPrefs.Save();
     }
-
-
     [ContextMenu("LoadDataJson")]
     public void LoadDataJson()
     {
-        var defautValue = JsonUtility.ToJson(processDataBases);
-        var value = PlayerPrefs.GetString(nameof(processDataBases), defautValue);
-        processDataBases = JsonUtility.FromJson<QuestProgessDataBase>(value);
-
+        var defaultValue = JsonUtility.ToJson(processDataBases);
+        var json = PlayerPrefs.GetString(nameof(processDataBases), defaultValue);
+        processDataBases = JsonUtility.FromJson<QuestProgessDataBase>(json);
+        Debug.Log("LoadDataJson is Loaded");
     }
 
     [ContextMenu("LoadData")]
     public void LoadData()
-    {
-        var defautValue = JsonUtility.ToJson(questDataBases);
-        var value = PlayerPrefs.GetString(nameof(questDataBases), defautValue);
+    {       
+        var defaultValue = JsonUtility.ToJson(questDataBases);
+        var value = PlayerPrefs.GetString(nameof(questDataBases), defaultValue);
         questDataBases = JsonUtility.FromJson<QuestDataBase>(value);
-
     }
+
     [ContextMenu("SaveData")]
     public void SaveData()
     {
@@ -68,8 +68,8 @@ public class QuestManager : MonoBehaviour
         var value = JsonUtility.ToJson(questDataBases);
         PlayerPrefs.SetString(nameof(questDataBases), value);
         PlayerPrefs.Save();
-
     }
+
     public void OnApplicationQuit()
     {
         SaveDataJson();
@@ -79,7 +79,4 @@ public class QuestManager : MonoBehaviour
         var questIndex = processDataBases.questProgessDatas.FindIndex(progess => questProcess.id == progess.id);
         processDataBases.questProgessDatas[questIndex] = questProcess;
     }
-
-
-
 }

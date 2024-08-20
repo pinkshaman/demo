@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
+using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 using Button = UnityEngine.UI.Button;
 using Image = UnityEngine.UI.Image;
 
@@ -13,6 +14,7 @@ public class QuestHandle : MonoBehaviour
 {
     public QuestData questdatas;
     public QuestProcessData progessdatas;
+   
     public Text DecriptionText;
     public Text title;
     public Image reward;  
@@ -21,6 +23,7 @@ public class QuestHandle : MonoBehaviour
     public Text rewardQualityText;
     public Button Claim;
     public Image RewardClaimed;
+    
     public void Start()
     {
         Claim.onClick.AddListener(OnButtonClick);
@@ -36,13 +39,11 @@ public class QuestHandle : MonoBehaviour
     public void UpdateUi()
     {
         Debug.Log("UiUpdated");
-        DecriptionText.text = questdatas.QuestDecription;
-        title.text = questdatas.QuestName;
-        reward.sprite = questdatas.QuestReward;
-        rewardQualityText.text = questdatas.rewardQuality.ToString();
-        QuestProgessTxt.text = $"{progessdatas.currentQuestProgess}/{questdatas.TaskCount}";
         
-
+        DecriptionText.text = questdatas.QuestDecription;
+        title.text = questdatas.QuestName;       
+        reward.sprite = questdatas.QuestReward;
+        rewardQualityText.text = questdatas.rewardQuality.ToString();             
     }
     public void CheckQuest()
     {
@@ -52,33 +53,45 @@ public class QuestHandle : MonoBehaviour
             Debug.Log("Mission Complete");
             Claim.interactable = true;
             Claim.image.color = Color.white;
+            UpdateUi();
         }
         else if (progessdatas.currentQuestProgess < questdatas.TaskCount)
         {
             progessdatas.isComplete = false;
             Claim.interactable =false;
             Claim.image.color = Color.gray;
+            UpdateUi();
         }   
     }
     public void OnButtonClick()
     {
         if (progessdatas.isComplete == true)
         {
+            Claim.interactable = true;
             Claim.image.color = Color.black;
             RewardClaimed.gameObject.SetActive(true);
-            progessdatas.hasClaimed = true;
+            progessdatas.hasClaimed = true;          
+            Debug.Log("hasClaimed");
+        }
+        else
+        {
+            Claim.image.color = Color.grey;
+            RewardClaimed.gameObject.SetActive(false);
+            progessdatas.hasClaimed =false;
+            Claim.interactable=false;
         }
     }
     public void ProgressFill()
-    {      
+    {
+        QuestProgessTxt.text = $"{progessdatas.currentQuestProgess}/{questdatas.TaskCount}";
         float currentPercent = questdatas.TaskCount / 100.0f * progessdatas.currentQuestProgess;
         Fill.fillAmount = currentPercent;
         CheckQuest();
-
-    }
-    public void UpdateProgess()
-    {
         
+    }
+    public void Update()
+    {
+        ProgressFill();
     }
 
 

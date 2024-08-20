@@ -420,6 +420,7 @@ MonoBehaviour:
     isComplete: 0
     hasClaimed: 0
     currentQuestProgess: 0
+  Id: {fileID: 0}
   DecriptionText: {fileID: 5116910426303087498}
   title: {fileID: 7520733882612747100}
   reward: {fileID: 862529875928376346}
