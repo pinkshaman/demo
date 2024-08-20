@@ -19,9 +19,11 @@ public class QuestHandle : MonoBehaviour
     public Image Fill;   
     public Text QuestProgessTxt;
     public Text rewardQualityText;
-    
+    public Button Claim;
+    public Image RewardClaimed;
     public void Start()
     {
+        Claim.onClick.AddListener(OnButtonClick);
         
     }
     public void SetData(QuestData dataX, QuestProcessData progessX)
@@ -39,8 +41,7 @@ public class QuestHandle : MonoBehaviour
         reward.sprite = questdatas.QuestReward;
         rewardQualityText.text = questdatas.rewardQuality.ToString();
         QuestProgessTxt.text = $"{progessdatas.currentQuestProgess}/{questdatas.TaskCount}";
-
-
+        
 
     }
     public void CheckQuest()
@@ -48,26 +49,34 @@ public class QuestHandle : MonoBehaviour
         if (progessdatas.currentQuestProgess >= questdatas.TaskCount)
         {
             progessdatas.isComplete = true;
-            Debug.Log("Mission Complete");        
+            Debug.Log("Mission Complete");
+            Claim.interactable = true;
+            Claim.image.color = Color.white;
         }
         else if (progessdatas.currentQuestProgess < questdatas.TaskCount)
         {
-            progessdatas.isComplete=false;
-        }
-        
+            progessdatas.isComplete = false;
+            Claim.interactable =false;
+            Claim.image.color = Color.gray;
+        }   
+    }
+    public void OnButtonClick()
+    {
+        Claim.image.color = Color.black;
+        RewardClaimed.gameObject.SetActive(true);
     }
     public void ProgressFill()
     {      
         float currentPercent = questdatas.TaskCount / 100.0f * progessdatas.currentQuestProgess;
         Fill.fillAmount = currentPercent;
         CheckQuest();
-    }
 
-    public void Update()
+    }
+    public void UpdateProgess()
     {
-        ProgressFill();
-
+        
     }
+
 
 
 
