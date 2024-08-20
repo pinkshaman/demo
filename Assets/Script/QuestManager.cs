@@ -31,7 +31,7 @@ public class QuestManager : MonoBehaviour
         var questTest = Instantiate(boardHandle, RootUiTest);
         quest.SetData(dataX, progessX);
         questTest.SetData(progessX);
-        IdQuestHandle.Add()
+        IdQuestHandle.Add(dataX.id, quest);
     }
 
     [ContextMenu("SaveDataJson")]

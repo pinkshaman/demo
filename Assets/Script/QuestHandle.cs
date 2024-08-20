@@ -62,8 +62,12 @@ public class QuestHandle : MonoBehaviour
     }
     public void OnButtonClick()
     {
-        Claim.image.color = Color.black;
-        RewardClaimed.gameObject.SetActive(true);
+        if (progessdatas.isComplete == true)
+        {
+            Claim.image.color = Color.black;
+            RewardClaimed.gameObject.SetActive(true);
+            progessdatas.hasClaimed = true;
+        }
     }
     public void ProgressFill()
     {      

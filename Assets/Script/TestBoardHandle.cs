@@ -65,7 +65,7 @@ public class TestBoardHandle : MonoBehaviour
         int newValue = int.Parse(CurrentProgessInputField.text);
         progessDatas.currentQuestProgess = newValue;
         Message.text = $"NewProgessDataSet:{progessDatas.currentQuestProgess}";
-        
+        UpdateUi();
     }
 
     public void OnLoadButtonCLick()
