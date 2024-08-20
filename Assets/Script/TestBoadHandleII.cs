@@ -95,12 +95,12 @@ public class TestBoadHandleII : MonoBehaviour
         var selectedQuest = questManager.IdQuestHandle[keyIndex];
 
         questShow.text =
-            $"{selectedQuest.questdatas.id}:QuestDataID\n" +
-            $"{selectedQuest.questdatas.TaskCount}: TotalProgess\n" +
-            $" {selectedQuest.questdatas.QuestName} : QuestName \n" +
-            $"{selectedQuest.questdatas.QuestDecription}: QuestDecripton\n" +
-            $" :{selectedQuest.questdatas.QuestReward}: Quest Reward\n" +
-            $"{selectedQuest.questdatas.rewardQuality}: Quality \n";
+            $"QuestDataID :{selectedQuest.questdatas.id}\n" +
+            $"TotalProgess:{selectedQuest.questdatas.TaskCount}\n" +
+            $"QuestName : {selectedQuest.questdatas.QuestName}\n" +
+            $"QuestDecripton: {selectedQuest.questdatas.QuestDecription}\n" +
+            $" Quest Reward :{selectedQuest.questdatas.QuestReward}\n" +
+            $"Quality :{selectedQuest.questdatas.rewardQuality} \n";
     }
     public void OnDropdownValueChanged(int keyIndex)
     {       

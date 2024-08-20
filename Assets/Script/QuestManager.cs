@@ -11,14 +11,11 @@ public class QuestManager : MonoBehaviour
     public QuestDataBase questDataBases;
     public QuestHandle questHandleItem;
     public Transform rootUi;
-    public Transform RootUiTest;
-    public TestBoardHandle boardHandle;
-    public TestBoadHandle2 boadHandle2;
+    public TestBoadHandleII boadHandle2;
     public Transform rootTestUI;
     public Dictionary<int, QuestHandle> IdQuestHandle;
 
     public void Start()
-    {
     {       
         LoadDataJson();
         IdQuestHandle = new Dictionary<int, QuestHandle>();
@@ -27,12 +24,11 @@ public class QuestManager : MonoBehaviour
         {
             QuestProcessData processData = processDataBases.questProgessDatas.Find(processData => processData.id == datas.id);
             CreateQuest(datas, processData);
-        }
+        }      
     }
     public void CreateQuest(QuestData dataX, QuestProcessData progessX)
     {
         var quest = Instantiate(questHandleItem, rootUi);
-        var questTest = Instantiate(boardHandle, RootUiTest);
         quest.SetData(dataX, progessX);       
         IdQuestHandle.Add(dataX.id, quest);
     }
