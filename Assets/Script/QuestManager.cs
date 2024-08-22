@@ -70,9 +70,11 @@ public class QuestManager : MonoBehaviour
     {
         SaveDataJson();
     }
-    public void UpdateQuestProgess(QuestProcessData questProcess)
+    public void UpdateQuestProgess(QuestProcessData questProgess)
     {
-        var questIndex = processDataBases.questProgessDatas.FindIndex(progess => questProcess.id == progess.id);
-        processDataBases.questProgessDatas[questIndex] = questProcess;
+        var questIndex = processDataBases.questProgessDatas.FindIndex(progess => questProgess.id == progess.id);
+        processDataBases.questProgessDatas[questIndex] = questProgess;
+        questHandleItem.FillProgess(questProgess.currentQuestProgess);
+
     }
 }
