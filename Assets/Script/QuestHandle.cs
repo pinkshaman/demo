@@ -38,11 +38,12 @@ public class QuestHandle : MonoBehaviour
         UpdateUi();
 
     }
-    public void Update()
+    public void UpdateProgess(QuestProcessData progess)
     {
-
-
+       this.progessdatas.currentQuestProgess =progess.currentQuestProgess;
+        UpdateUi();
     }
+   
 
     public void UpdateUi()
     {
@@ -51,21 +52,26 @@ public class QuestHandle : MonoBehaviour
         DecriptionText.text = questdatas.QuestDecription;
         title.text = questdatas.QuestName;
         reward.sprite = questdatas.QuestReward;
-        rewardQualityText.text = questdatas.rewardQuality.ToString();
-
-        QuestProgessTxt.text = $"{progessdatas.currentQuestProgess}/{questdatas.TaskCount}";
-        //float currentPercent = (float)progessdatas.currentQuestProgess / questdatas.TaskCount;
-        //Fill.fillAmount = currentPercent;
-        //CheckQuest();
+        rewardQualityText.text = questdatas.rewardQuality.ToString();      
+        FillProgess();
     }
     public void CheckQuest()
     {
         if (progessdatas.currentQuestProgess >= questdatas.TaskCount)
         {
-            progessdatas.isComplete = true;
-            Debug.Log("Mission Complete");
-            Claim.interactable = true;
-            Claim.image.color = Color.white;
+            if (progessdatas.hasClaimed == false)
+            {
+                progessdatas.isComplete = true;
+                Debug.Log("Mission Complete");
+                Claim.interactable = true;
+                Claim.image.color = Color.white;
+            }
+            else
+            {
+                Claim.image.color = Color.black;
+                Claim.interactable=false;
+                RewardClaimed.gameObject.SetActive(true);
+            }
         }
         else
         {
@@ -93,11 +99,10 @@ public class QuestHandle : MonoBehaviour
             Claim.interactable = false;
         }
     }
-    public void FillProgess(int fillAmount)
-    {
-        progessdatas.currentQuestProgess = fillAmount;
-        QuestProgessTxt.text = $"{fillAmount}/{questdatas.TaskCount}";
-        float currentPercent = (float)fillAmount / questdatas.TaskCount;
+    public void FillProgess()
+    {     
+        QuestProgessTxt.text = $"{progessdatas.currentQuestProgess}/{questdatas.TaskCount}";
+        float currentPercent = (float)progessdatas.currentQuestProgess / questdatas.TaskCount;
         Fill.fillAmount = currentPercent;
         CheckQuest();
     }

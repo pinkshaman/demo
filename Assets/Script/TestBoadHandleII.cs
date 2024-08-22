@@ -110,7 +110,7 @@ public class TestBoadHandleII : MonoBehaviour
     public void SetDropdown(Dictionary<int, QuestHandle> data)
     {
         questList.ClearOptions();
-        //List<string> options = data.Values.Select(quest => $"Quest ID: {quest.progessdatas.id} - {quest.questdatas.QuestName}").ToList();
+
         List<string> options = new List<string>();
         foreach (var quest in data)
         {          

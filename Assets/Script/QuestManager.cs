@@ -74,7 +74,8 @@ public class QuestManager : MonoBehaviour
     {
         var questIndex = processDataBases.questProgessDatas.FindIndex(progess => questProgess.id == progess.id);
         processDataBases.questProgessDatas[questIndex] = questProgess;
-        questHandleItem.FillProgess(questProgess.currentQuestProgess);
+        IdQuestHandle[questProgess.id].UpdateProgess(questProgess);
+
 
     }
 }
