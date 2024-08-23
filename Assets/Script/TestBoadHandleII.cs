@@ -63,9 +63,10 @@ public class TestBoadHandleII : MonoBehaviour
     }
     public void OnClearButtonClick()
     {
-        PlayerPrefs.DeleteAll();
+        questManager.ClearData();
         message.text = "Data Deleted";
         ShowInfor(SelectedQuestKey);
+        
     }
     public void OnSaveButtonClick()
     {

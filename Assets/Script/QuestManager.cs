@@ -48,21 +48,34 @@ public class QuestManager : MonoBehaviour
         processDataBases = JsonUtility.FromJson<QuestProgessDataBase>(json);
         Debug.Log("LoadDataJson is Loaded");
     }
+    public void ClearData()
+    {
+        if (PlayerPrefs.HasKey(nameof(processDataBases)))
+        {
+            PlayerPrefs.DeleteAll();
+        }
+    }
 
     [ContextMenu("LoadData")]
-    public void LoadData()
-    {       
-        var defaultValue = JsonUtility.ToJson(questDataBases);
-        var value = PlayerPrefs.GetString(nameof(questDataBases), defaultValue);
-        questDataBases = JsonUtility.FromJson<QuestDataBase>(value);
+    public T  LoadData<T>()
+    {       string key = typeof(T).Name;
+        if (PlayerPrefs.HasKey(key))
+        {          
+            var value = PlayerPrefs.GetString(key);
+            return JsonUtility.FromJson<T>(value);
+        }
+        else
+        {
+            return default(T);
+        }
     }
 
     [ContextMenu("SaveData")]
-    public void SaveData()
+    public void SaveData<T>(T data)
     {
 
-        var value = JsonUtility.ToJson(questDataBases);
-        PlayerPrefs.SetString(nameof(questDataBases), value);
+        var value = JsonUtility.ToJson(data);
+        PlayerPrefs.SetString(typeof(T).Name, value);
         PlayerPrefs.Save();
     }
 
@@ -75,7 +88,5 @@ public class QuestManager : MonoBehaviour
         var questIndex = processDataBases.questProgessDatas.FindIndex(progess => questProgess.id == progess.id);
         processDataBases.questProgessDatas[questIndex] = questProgess;
         IdQuestHandle[questProgess.id].UpdateProgess(questProgess);
-
-
     }
 }

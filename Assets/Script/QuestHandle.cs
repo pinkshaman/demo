@@ -24,11 +24,10 @@ public class QuestHandle : MonoBehaviour
     public Button Claim;
     public Image RewardClaimed;
 
-
     public void Start()
     {
         Claim.onClick.AddListener(OnButtonClick);
-
+        
     }
     public void SetData(QuestData dataX, QuestProcessData progessX)
     {

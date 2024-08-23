@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bc1520f3ee32ba44a25e1e163b7cf7f, type: 3}
+  m_Name: DailyReward
+  m_EditorClassIdentifier: 
+  DailyRewardeds:
+  - day: 1
+    RewardImage: {fileID: 21300000, guid: d2428cd9427cd1a449b57d00f2bbdf30, type: 3}
+    Quality: 20
+  - day: 2
+    RewardImage: {fileID: 21300000, guid: d2428cd9427cd1a449b57d00f2bbdf30, type: 3}
+    Quality: 30
+  - day: 3
+    RewardImage: {fileID: 21300000, guid: d2428cd9427cd1a449b57d00f2bbdf30, type: 3}
+    Quality: 40
+  - day: 4
+    RewardImage: {fileID: 21300000, guid: d2428cd9427cd1a449b57d00f2bbdf30, type: 3}
+    Quality: 50
+  - day: 5
+    RewardImage: {fileID: 21300000, guid: be3150ecbb9decf4eaf8d1c6b8212388, type: 3}
+    Quality: 60
+  - day: 6
+    RewardImage: {fileID: 21300000, guid: f916f8ca481dc2342a96b4d273d9f317, type: 3}
+    Quality: 70
+  - day: 7
+    RewardImage: {fileID: 21300000, guid: d2428cd9427cd1a449b57d00f2bbdf30, type: 3}
+    Quality: 100
+  - day: 8
+    RewardImage: {fileID: 21300000, guid: be3150ecbb9decf4eaf8d1c6b8212388, type: 3}
+    Quality: 100
+  - day: 9
+    RewardImage: {fileID: 21300000, guid: d2428cd9427cd1a449b57d00f2bbdf30, type: 3}
+    Quality: 100
+  - day: 10
+    RewardImage: {fileID: 21300000, guid: be3150ecbb9decf4eaf8d1c6b8212388, type: 3}
+    Quality: 100
+  - day: 11
+    RewardImage: {fileID: 21300000, guid: be3150ecbb9decf4eaf8d1c6b8212388, type: 3}
+    Quality: 100
+  - day: 12
+    RewardImage: {fileID: 21300000, guid: be3150ecbb9decf4eaf8d1c6b8212388, type: 3}
+    Quality: 100
+  - day: 13
+    RewardImage: {fileID: 21300000, guid: d2428cd9427cd1a449b57d00f2bbdf30, type: 3}
+    Quality: 100
+  - day: 14
+    RewardImage: {fileID: 21300000, guid: d2428cd9427cd1a449b57d00f2bbdf30, type: 3}
+    Quality: 100
+  - day: 15
+    RewardImage: {fileID: 21300000, guid: d2428cd9427cd1a449b57d00f2bbdf30, type: 3}
+    Quality: 100
+  - day: 16
+    RewardImage: {fileID: 21300000, guid: be3150ecbb9decf4eaf8d1c6b8212388, type: 3}
+    Quality: 100
+  - day: 17
+    RewardImage: {fileID: 21300000, guid: d2428cd9427cd1a449b57d00f2bbdf30, type: 3}
+    Quality: 100
+  - day: 18
+    RewardImage: {fileID: 21300000, guid: be3150ecbb9decf4eaf8d1c6b8212388, type: 3}
+    Quality: 100
+  - day: 19
+    RewardImage: {fileID: 21300000, guid: 5f2fa3e5f32661b4fa9855dfffa55cd8, type: 3}
+    Quality: 100
+  - day: 20
+    RewardImage: {fileID: 21300000, guid: be3150ecbb9decf4eaf8d1c6b8212388, type: 3}
+    Quality: 100
+  - day: 21
+    RewardImage: {fileID: 21300000, guid: f916f8ca481dc2342a96b4d273d9f317, type: 3}
+    Quality: 100
+  - day: 22
+    RewardImage: {fileID: 21300000, guid: be3150ecbb9decf4eaf8d1c6b8212388, type: 3}
+    Quality: 500
+  - day: 23
+    RewardImage: {fileID: 21300000, guid: d2428cd9427cd1a449b57d00f2bbdf30, type: 3}
+    Quality: 500
+  - day: 24
+    RewardImage: {fileID: 21300000, guid: be3150ecbb9decf4eaf8d1c6b8212388, type: 3}
+    Quality: 600
+  - day: 25
+    RewardImage: {fileID: 21300000, guid: 5f2fa3e5f32661b4fa9855dfffa55cd8, type: 3}
+    Quality: 1
+  - day: 26
+    RewardImage: {fileID: 21300000, guid: d2428cd9427cd1a449b57d00f2bbdf30, type: 3}
+    Quality: 700
+  - day: 27
+    RewardImage: {fileID: 21300000, guid: be3150ecbb9decf4eaf8d1c6b8212388, type: 3}
+    Quality: 1000
+  - day: 28
+    RewardImage: {fileID: 21300000, guid: d2428cd9427cd1a449b57d00f2bbdf30, type: 3}
+    Quality: 1000
+  - day: 29
+    RewardImage: {fileID: 21300000, guid: be3150ecbb9decf4eaf8d1c6b8212388, type: 3}
+    Quality: 2000
+  - day: 30
+    RewardImage: {fileID: 21300000, guid: d2428cd9427cd1a449b57d00f2bbdf30, type: 3}
+    Quality: 3000
